@@ -10,6 +10,7 @@ export const JourneyPicker = ({ onJourneyChange }) => (
         <label>
           <div className="journey-picker__label">Odkud:</div>
           <select>
+            <option value="">Vyberte</option>
             <option value="mesto01">Město 01</option>
             <option value="mesto02">Město 02</option>
             <option value="mesto03">Město 03</option>
@@ -20,6 +21,7 @@ export const JourneyPicker = ({ onJourneyChange }) => (
         <label>
           <div className="journey-picker__label">Kam:</div>
           <select>
+            <option value="">Vyberte</option>
             <option value="mesto01">Město 01</option>
             <option value="mesto02">Město 02</option>
             <option value="mesto03">Město 03</option>
@@ -30,6 +32,7 @@ export const JourneyPicker = ({ onJourneyChange }) => (
         <label>
           <div className="journey-picker__label">Datum:</div>
           <select>
+            <option value="">Vyberte</option>
             <option value="datum01">Datum 01</option>
             <option value="datum02">Datum 02</option>
             <option value="datum03">Datum 03</option>
