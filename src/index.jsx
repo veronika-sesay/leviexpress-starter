@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { App } from './components/App';
 import './style.css';
 
 export const API_BASE_URL = 'http://leviexpress-backend.herokuapp.com/api';
 
-render(<App />, document.querySelector('#app'));
+createRoot(document.querySelector('#app')).render(<App />, );
