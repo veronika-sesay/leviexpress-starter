@@ -17,15 +17,34 @@ export const CityOptions = ({ cities }) => {
   );
 };
 
+export const DatesOptions = ({ dates }) => {
+  return (
+    <>
+      <option key={null} value={null}>
+        Vyberte
+      </option>
+      {dates.map((date) => (
+        <option key={date.dateBasic} value={date.dateBasic}>
+          {date.dateCs}
+        </option>
+      ))}
+    </>
+  );
+};
+
 export const JourneyPicker = ({ onJourneyChange }) => {
   const [fromCity, setFromCity] = useState('');
   const [toCity, setToCity] = useState('');
   const [date, setDate] = useState('');
   const [cities, setCities] = useState([]);
+  const [dates, setDates] = useState([]);
   useEffect(() => {
     fetch('https://apps.kodim.cz/daweb/leviexpress/api/cities')
       .then((response) => response.json())
       .then((data) => setCities(data.results));
+    fetch('https://apps.kodim.cz/daweb/leviexpress/api/dates')
+      .then((response) => response.json())
+      .then((data) => setDates(data.results));
   }, []);
 
   const handleSubmit = (event) => {
@@ -68,12 +87,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
                 setDate(event.target.value);
               }}
             >
-              <option value="">Vyberte</option>
-              <option value="datum01">Datum 01</option>
-              <option value="datum02">Datum 02</option>
-              <option value="datum03">Datum 03</option>
-              <option value="datum04">Datum 04</option>
-              <option value="datum05">Datum 05</option>
+              <DatesOptions dates={dates} />
             </select>
           </label>
           <div className="journey-picker__controls">
